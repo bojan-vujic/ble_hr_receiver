@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLE Heart Rate Receiver</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="main-wrapper">
+        <h2>BLE Heart Rate Receiver</h2>
+        <p class="subtitle">Capturing universal GATT telemetry streams via Web Bluetooth API.</p>
+        <button id="start" class="start-btn">▶ Pair & Connect Device</button>
+        <button id="stop" class="stop-btn" disabled>■ Stop & Save Session (CSV)</button>
+        <div id="log"><p class="ready-msg">> Receiver ready. Ensure your HR device broadcast mode is enabled.</p></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

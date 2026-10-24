@@ -1,0 +1,90 @@
+/* Base Page Styling */
+body { 
+    font-family: sans-serif; 
+    background: #121212; 
+    color: #fff; 
+    padding: 20px; 
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Responsive Main Wrapper Container */
+.main-wrapper {
+    width: 100%;
+    max-width: 500px; /* Constrains desktop size, remains responsive on mobile */
+    background: #1e1e1e;
+    padding: 30px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+.subtitle {
+    color: #aaa; 
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+/* Button UI Components */
+button { 
+    width: 100%; 
+    padding: 15px; 
+    margin: 10px 0; 
+    font-size: 16px; 
+    border: none; 
+    border-radius: 6px; 
+    cursor: pointer; 
+    color: white; 
+    font-weight: bold; 
+    transition: background 0.2s ease;
+}
+
+#start { 
+    background: #2e7d32; 
+} 
+
+#start:hover:not(:disabled) {
+    background: #388e3c;
+}
+
+#stop { 
+    background: #c62828; 
+} 
+
+#stop:hover:not(:disabled) {
+    background: #d32f2f;
+}
+
+button:disabled { 
+    background: #333; 
+    color: #777; 
+    cursor: not-allowed;
+}
+
+/* Console Log Component */
+#log { 
+    background: #000; 
+    color: #00ff00; 
+    font-family: monospace; 
+    text-align: left; 
+    padding: 15px; 
+    height: 300px; 
+    overflow-y: auto; 
+    border-radius: 6px; 
+    margin-top: 20px;
+    border: 1px solid #333;
+}
+
+.ready-msg {
+    color: #aaa;
+    margin: 0;
+}
