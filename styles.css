@@ -7,11 +7,16 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 92vh; 
+    height: 95vh;
     box-sizing: border-box;
+    
+    /* Allows the browser to see scrolling potential without showing scrollbars */
+    overflow-y: auto;
+    overscroll-behavior-y: contain; 
 }
 
 .main-wrapper {
+    position: relative;
     width: 95%;
     max-width: 440px;
     background: #16171d;
@@ -190,12 +195,6 @@ button:disabled {
 .session-meta strong {
     color: #d1d5db;
     font-family: ui-monospace, monospace;
-}
-
-
-.main-wrapper {
-    position: relative;
-    /* Keep all your existing wrapper styles exactly the same here */
 }
 
 .dim-screen-btn {
