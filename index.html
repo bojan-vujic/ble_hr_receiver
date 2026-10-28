@@ -8,13 +8,46 @@
 </head>
 <body>
     <div class="main-wrapper">
-        <h2>BLE Heart Rate Receiver</h2>
-        <p class="subtitle">Capturing universal GATT telemetry streams via Web Bluetooth API.</p>
-        <button id="start" class="start-btn">▶ Pair & Connect Device</button>
-        <button id="stop" class="stop-btn" disabled>■ Stop & Save Session (CSV)</button>
-        <div id="log"><p class="ready-msg">> Receiver ready. Ensure your HR device broadcast mode is enabled.</p></div>
+        <h2 class="center">BLE Heart Rate Receiver</h2>
+        <div class="subtitle">Capturing universal GATT telemetry streams via Web Bluetooth API.</div>
+
+        <!-- The unified console module -->
+        <div id="log">
+            <!-- Top Section: Dashboard Panel Area -->
+            <div id="live-dashboard">
+                <div id="pulse-display">
+                    PULSE
+                    <span id="current-hr">-</span>
+                    <div class="session-meta">
+                        <span>Points: <strong id="data-points">-</strong></span>
+                        <span>Duration: <strong id="duration">--:--</strong></span>
+                    </div>
+                </div>
+                <div class="dashboard-grid">
+                    <div class="metric-card"><div>MIN</div><div id="min-hr" style="color: #60a5fa;">-</div></div>
+                    <div class="metric-card"><div>MAX</div><div id="max-hr" style="color: #f87171;">-</div></div>
+                    <div class="metric-card"><div>AVG</div><div id="avg-hr" style="color: #34d399;">-</div></div>
+                </div>
+                <!-- Updated: Interactive Canvas Block Setup -->
+                <canvas id="trend-chart" width="360" height="60" style="cursor: grab; touch-action: none;"></canvas>
+            </div>
+            <!-- Bottom Section: Rolling History Stream Log -->
+            <div id="log-stream">> Receiver ready. Ensure your HR device broadcast mode is enabled.</div>
+        </div>
+
+        <button id="start">▶ Pair & Connect Device</button>
+        <button id="stop" disabled>■ Stop & Save Session (CSV)</button>
+
+        <!-- Fullscreen Blackout Screen -->
+        <div id="screen-blackout" class="dim-screen-btn">
+            <span id="movin-text" style="color: #222; font-family: sans-serif; font-size: 14px;">Tap anywhere to wake screen</span>
+        </div>
     </div>
 
+    
+
+
     <script src="app.js"></script>
+    <script src="app_chart.js"></script>
 </body>
 </html>

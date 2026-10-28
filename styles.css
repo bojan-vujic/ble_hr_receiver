@@ -1,90 +1,232 @@
-/* Base Page Styling */
 body { 
     font-family: sans-serif; 
-    background: #121212; 
-    color: #fff; 
-    padding: 20px; 
+    background: #0d0e12; 
+    color: #f3f4f6; 
+    padding: 10px; 
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 92vh; 
     box-sizing: border-box;
 }
 
-/* Responsive Main Wrapper Container */
 .main-wrapper {
-    width: 100%;
-    max-width: 500px; /* Constrains desktop size, remains responsive on mobile */
-    background: #1e1e1e;
+    width: 95%;
+    max-width: 440px;
+    background: #16171d;
     padding: 30px 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    text-align: center;
+    border-radius: 16px;
+    border: 1px solid #262933;
+    box-shadow: 0 20px 40px #00000066;
     box-sizing: border-box;
 }
 
 h2 {
-    margin-top: 0;
+    margin: 0 0 6px 0;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
 }
 
 .subtitle {
-    color: #aaa; 
-    font-size: 14px;
-    margin-bottom: 25px;
+    color: #6b7280; 
+    font-size: 13px;
+    margin: 0 0 20px 0;
+    line-height: 1.4;
 }
 
-/* Button UI Components */
+.hidden {
+    display: none !important;
+}
+
+/* Master Terminal Container */
+#log { 
+    background: #090a0f; 
+    padding: 0; 
+    height: 350px; 
+    border-radius: 8px; 
+    margin-bottom: 20px;
+    border: 1px solid #1e222b;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Upper Analytics Display Dashboard */
+#live-dashboard {
+    height: 72%; 
+    background: linear-gradient(180deg, #11131a 0%, #090a0f 100%);
+    border-bottom: 1px solid #1e222b;
+    padding: 14px 16px 10px 16px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 12px;
+    text-align: center;
+}
+
+.metric-card {
+    background: #ffffff04;
+    border: 1px solid #ffffff0a;
+    padding: 6px;
+    border-radius: 6px;
+    font-family: ui-monospace, monospace;
+    font-size: 11px;
+    color: #9ca3af;
+}
+
+.metric-card div:last-child {
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 2px;
+}
+
+/* Mini chart canvas window style declarations */
+#trend-chart {
+    width: 100%;
+    height: 60px;
+    margin-top: 12px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.015);
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+#trend-chart:active {
+    cursor: grabbing;
+}
+
+#pulse-display {
+    text-align: center;
+    font-family: ui-monospace, monospace;
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+#current-hr {
+    font-size: 32px;
+    color: #ef4444;
+    font-weight: 800;
+    display: block;
+    line-height: 1.1;
+}
+
+/* Bottom Historical Log Output Stream */
+#log-stream {
+    height: 28%;
+    padding: 8px 16px;
+    box-sizing: border-box;
+    overflow-y: hidden;
+    font-family: ui-monospace, monospace;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    background: #06070a;
+}
+
+.log-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+}
+
+.log-row .timestamp {
+    color: #4b5563;
+}
+
+/* UI Action Components */
 button { 
     width: 100%; 
-    padding: 15px; 
-    margin: 10px 0; 
-    font-size: 16px; 
+    padding: 14px; 
+    margin: 8px 0 0 0; 
+    font-size: 15px; 
     border: none; 
-    border-radius: 6px; 
+    border-radius: 8px; 
     cursor: pointer; 
     color: white; 
-    font-weight: bold; 
-    transition: background 0.2s ease;
+    font-weight: 500; 
+    transition: all 0.15s ease;
 }
 
-#start { 
-    background: #2e7d32; 
-} 
+#start { background: #059669; } 
+#start:hover:not(:disabled) { background: #10b981; }
 
-#start:hover:not(:disabled) {
-    background: #388e3c;
-}
-
-#stop { 
-    background: #c62828; 
-} 
-
-#stop:hover:not(:disabled) {
-    background: #d32f2f;
-}
+#stop { background: #dc2626; } 
+#stop:hover:not(:disabled) { background: #ef4444; }
 
 button:disabled { 
-    background: #333; 
-    color: #777; 
+    background: #1f222a; 
+    color: #4b5563; 
     cursor: not-allowed;
 }
 
-/* Console Log Component */
-#log { 
-    background: #000; 
-    color: #00ff00; 
-    font-family: monospace; 
-    text-align: left; 
-    padding: 15px; 
-    height: 300px; 
-    overflow-y: auto; 
-    border-radius: 6px; 
-    margin-top: 20px;
-    border: 1px solid #333;
+.center {
+    text-align: center;
 }
 
-.ready-msg {
-    color: #aaa;
-    margin: 0;
+/* Sub-panel session metadata row rules */
+.session-meta {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    font-size: 11px;
+    color: #6b7280;
+    margin-top: 6px;
+    margin-bottom: 0px;
+    letter-spacing: 0.2px;
+}
+
+.session-meta strong {
+    color: #d1d5db;
+    font-family: ui-monospace, monospace;
+}
+
+
+.main-wrapper {
+    position: relative;
+    /* Keep all your existing wrapper styles exactly the same here */
+}
+
+.dim-screen-btn {
+    display: none; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100vw; 
+    height: 100vh; 
+    background: black; 
+    z-index: 99999; 
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+
+@keyframes floatText {
+    0%   { left: 10%; top: 10%; }
+    25%  { left: 65%; top: 20%; }
+    50%  { left: 15%; top: 75%; }
+    75%  { left: 60%; top: 70%; }
+    100% { left: 10%; top: 10%; }
+}
+
+.moving-active {
+    position: absolute !important;
+    white-space: nowrap !important;
+    animation: floatText 15s linear infinite !important;
+}
+
+#screen-blackout {
+    overflow: hidden !important;
 }
